@@ -3,9 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/src/JavaForm/Main.java</file>
-            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/src/JavaForm/LoginForm.java</file>
-            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/src/JavaForm/AdminForm.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/admin/customer/ChangeCustomer.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/login/LoginForm.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/admin/PanelStatisticalAdmin.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/models/Customers.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/models/WorkDay.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/controller/UserController/UserController.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/dao/BillDao.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/staff/StaffForm.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/admin/bill/PanelBill.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/controller/BillController/BillController.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/admin/customer/AddCustomer.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/models/TypeOfGoods.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/admin/AdminForm.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/staff/PanelProfileStaff.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/controller/ProductController/ProductController.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/login/ForgotPassword.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/controller/TogController/TogController.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/admin/bill/ShowBill.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/models/Bill.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/models/Users.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/controller/mailhandle/MailHandle.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/dao/UsersDao.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/models/Invoicedetails.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/admin/bill/EditBill.java</file>
+            <file>file:/G:/Study/University/Nam%203/HK1/PTPMUD/QLBHGG/QLBHGG/src/qlbhgg/views/admin/customer/PanelCustomer.java</file>
         </group>
     </open-files>
 </project-private>

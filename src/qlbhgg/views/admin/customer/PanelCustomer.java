@@ -1,0 +1,328 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package qlbhgg.views.admin.customer;
+
+import Helpers.Helper;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import qlbhgg.controller.CustomerController.CustomerController;
+import qlbhgg.models.Customers;
+
+/**
+ *
+ * @author acer
+ */
+public class PanelCustomer extends javax.swing.JPanel {
+
+    /**
+     * Creates new form PanelCustomer
+     */
+    CustomerController customerController = new CustomerController();
+
+    public ArrayList<Customers> ListCustomers = customerController.getAll();
+
+    public PanelCustomer() throws SQLException {
+        initComponents();
+        setTable();
+        showTableCustomer(this.ListCustomers);
+
+    }
+
+    public void setTable() {
+        jTableCustomer.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        jTableCustomer.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jTableCustomer.getTableHeader().setOpaque(false);
+        jTableCustomer.getTableHeader().setBackground(new Color(102, 178, 255));
+        jTableCustomer.setRowHeight(25);
+
+        TableCellRenderer rendererFromHeader = jTableCustomer.getTableHeader().getDefaultRenderer();
+        JLabel headerLabel = (JLabel) rendererFromHeader;
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
+
+        jTableCustomer.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableCustomer.getColumnModel().getColumn(1).setPreferredWidth(150);
+        jTableCustomer.getColumnModel().getColumn(2).setPreferredWidth(200);
+        jTableCustomer.getColumnModel().getColumn(3).setPreferredWidth(275);
+        jTableCustomer.getColumnModel().getColumn(4).setPreferredWidth(320);
+        jTableCustomer.getColumnModel().getColumn(5).setPreferredWidth(225);
+        jTableCustomer.getColumnModel().getColumn(6).setPreferredWidth(120);
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        jTableCustomer.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        jTableCustomer.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
+        jTableCustomer.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        jTableCustomer.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+        jTableCustomer.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        jTableCustomer.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
+        jTableCustomer.getColumnModel().getColumn(6).setCellRenderer(centerRenderer);
+        jLabelFrameSearchCustomer.setIcon(scaleFrameSearch("/Image/FrameSearch.png"));
+    }
+
+    public void showTableCustomer(ArrayList<Customers> ListCustomers) {
+        DefaultTableModel tblModel = (DefaultTableModel) jTableCustomer.getModel();
+        int stt = 1;
+        for (Customers c : ListCustomers) {
+            String row[] = {String.valueOf(stt),c.getCustomercode(), c.getCustomername(), c.getTradingname(), c.getAddress(), c.getEmail(), c.getPhonenumber()};
+            tblModel.addRow(row);
+            stt++;
+        }
+    }
+
+    public void updateTable() throws SQLException {
+        DefaultTableModel tblModel = (DefaultTableModel) jTableCustomer.getModel();
+        CustomerController customerController = new CustomerController();
+        int rowCount = tblModel.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) {
+            tblModel.removeRow(i);
+        }
+        ArrayList<Customers> list = new ArrayList();
+        list = customerController.getAll();
+        this.showTableCustomer(list);
+    }
+
+    public String getSelectedCustomerCode() {
+        int row = 0;
+        row = jTableCustomer.getSelectedRow();
+        if (row == -1) {
+            return "";
+        }
+        String result = (String) jTableCustomer.getValueAt(row, 1);
+        return result;
+    }
+
+    private ImageIcon scaleFrameSearch(String path) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(path));
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(280, 30, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        return scaledIcon;
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jDashboardTTKH = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableCustomer = new javax.swing.JTable();
+        jTextFieldSearchCustomer = new javax.swing.JTextField();
+        jLabelSearchCustomer = new javax.swing.JLabel();
+        jLabelFrameSearchCustomer = new javax.swing.JLabel();
+        jButtonDeleteCustomer = new javax.swing.JButton();
+        jButtonAddCustomer = new javax.swing.JButton();
+        jButtonEditCustomer = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jDashboardTTKH.setBackground(new java.awt.Color(255, 255, 255));
+        jDashboardTTKH.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTableCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTableCustomer.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTableCustomer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "STT", "Mã khách hàng", "Tên khách hàng", "Giao dịch", "Địa chỉ", "Email", "Số điện thoại"
+            }
+        ));
+        jTableCustomer.setFocusable(false);
+        jTableCustomer.setRowHeight(25);
+        jTableCustomer.setSelectionBackground(new java.awt.Color(215, 220, 222));
+        jTableCustomer.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jTableCustomer.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTableCustomer);
+
+        jDashboardTTKH.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1330, 790));
+
+        jTextFieldSearchCustomer.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jTextFieldSearchCustomer.setForeground(new java.awt.Color(120, 120, 120));
+        jTextFieldSearchCustomer.setText("Tìm kiếm");
+        jTextFieldSearchCustomer.setBorder(null);
+        jTextFieldSearchCustomer.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldSearchCustomer.setOpaque(false);
+        jTextFieldSearchCustomer.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldSearchCustomerFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldSearchCustomerFocusLost(evt);
+            }
+        });
+        jTextFieldSearchCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSearchCustomerActionPerformed(evt);
+            }
+        });
+        jTextFieldSearchCustomer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldSearchCustomerKeyReleased(evt);
+            }
+        });
+        jDashboardTTKH.add(jTextFieldSearchCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 30, 240, 30));
+
+        jLabelSearchCustomer.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSearchCustomer.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelSearchCustomer.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelSearchCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_search_20px_1.png"))); // NOI18N
+        jLabelSearchCustomer.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jDashboardTTKH.add(jLabelSearchCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 30, 30, 30));
+
+        jLabelFrameSearchCustomer.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelFrameSearchCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jDashboardTTKH.add(jLabelFrameSearchCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, 280, 30));
+
+        jButtonDeleteCustomer.setBackground(new java.awt.Color(102, 178, 255));
+        jButtonDeleteCustomer.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonDeleteCustomer.setText("Xóa");
+        jButtonDeleteCustomer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteCustomerActionPerformed(evt);
+            }
+        });
+        jDashboardTTKH.add(jButtonDeleteCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, -1, -1));
+
+        jButtonAddCustomer.setBackground(new java.awt.Color(102, 178, 255));
+        jButtonAddCustomer.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonAddCustomer.setText("Thêm");
+        jButtonAddCustomer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAddCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddCustomerActionPerformed(evt);
+            }
+        });
+        jDashboardTTKH.add(jButtonAddCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, -1, -1));
+
+        jButtonEditCustomer.setBackground(new java.awt.Color(102, 178, 255));
+        jButtonEditCustomer.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonEditCustomer.setText("Sửa");
+        jButtonEditCustomer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonEditCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditCustomerActionPerformed(evt);
+            }
+        });
+        jDashboardTTKH.add(jButtonEditCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 30, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Danh sách khách hàng");
+        jDashboardTTKH.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        add(jDashboardTTKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldSearchCustomerFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerFocusGained
+        if (jTextFieldSearchCustomer.getText().equals("Tìm kiếm")) {
+            jTextFieldSearchCustomer.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldSearchCustomerFocusGained
+
+    private void jTextFieldSearchCustomerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerFocusLost
+        if (jTextFieldSearchCustomer.getText().equals("")) {
+            jTextFieldSearchCustomer.setText("Tìm kiếm");
+        }
+    }//GEN-LAST:event_jTextFieldSearchCustomerFocusLost
+
+    private void jTextFieldSearchCustomerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerKeyReleased
+        DefaultTableModel tblModel = (DefaultTableModel) jTableCustomer.getModel();
+        CustomerController customerController = new CustomerController();
+        int rowCount = tblModel.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) {
+            tblModel.removeRow(i);
+        }
+        ArrayList<Customers> list = new ArrayList();
+        list = customerController.searchCustomer(jTextFieldSearchCustomer.getText());
+        this.showTableCustomer(list);
+    }//GEN-LAST:event_jTextFieldSearchCustomerKeyReleased
+
+    private void jButtonAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCustomerActionPerformed
+        try {
+            ChangeCustomer ac = new ChangeCustomer("add", this);
+            ac.setDefaultCloseOperation(ac.DISPOSE_ON_CLOSE);
+            updateTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonAddCustomerActionPerformed
+
+    private void jTextFieldSearchCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextFieldSearchCustomerActionPerformed
+
+    private void jButtonEditCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditCustomerActionPerformed
+        if (getSelectedCustomerCode().equals("")) {
+            Helper helper = new Helper();
+            helper.sendMessage("Vui lòng chọn khách hàng");
+            return;
+        }
+        try {
+            ChangeCustomer ac = new ChangeCustomer("update", this);
+            ac.setDefaultCloseOperation(ac.DISPOSE_ON_CLOSE);
+            updateTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonEditCustomerActionPerformed
+
+    private void jButtonDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCustomerActionPerformed
+        // TODO add your handling code here:
+        Helper helper = new Helper();
+        if (getSelectedCustomerCode().equals("")) {
+            helper.sendMessage("Vui lòng chọn khách hàng");
+            return;
+        }
+        try {
+            String customerCode = getSelectedCustomerCode();
+            int ret = JOptionPane.showConfirmDialog(this, "Bạn muốn xóa khách hàng này không ?", "Confirm", JOptionPane.YES_NO_OPTION);
+            if (ret != JOptionPane.YES_OPTION) {
+                return;
+            }
+            customerController.deleteCustomer(customerCode);
+            helper.sendMessage("Đã xóa khách hàng");
+            updateTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonDeleteCustomerActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAddCustomer;
+    private javax.swing.JButton jButtonDeleteCustomer;
+    private javax.swing.JButton jButtonEditCustomer;
+    private javax.swing.JPanel jDashboardTTKH;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelFrameSearchCustomer;
+    private javax.swing.JLabel jLabelSearchCustomer;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableCustomer;
+    private javax.swing.JTextField jTextFieldSearchCustomer;
+    // End of variables declaration//GEN-END:variables
+}
